@@ -1,4 +1,4 @@
-document.querySelectorAll('.filters button').forEach(button=>button.addEventListener('click',()=>{const filter=button.dataset.filter;document.querySelectorAll('.filters button').forEach(b=>b.classList.toggle('active',b===button));document.querySelectorAll('.card').forEach(card=>card.hidden=filter!=='all'&&card.dataset.category!==filter)}));
+document.querySelectorAll('.filters button').forEach(button=>button.addEventListener('click',()=>{const filter=button.dataset.filter;document.querySelectorAll('.filters button').forEach(b=>b.classList.toggle('active',b===button));document.querySelectorAll('.card').forEach(card=>card.hidden=filter!=='all'&&!card.dataset.category.split(' ').includes(filter))}));
 
 const stops=[
   {day:1,name:'Home in Hermosillo',note:'Early-afternoon arrival + backyard carne asada',lat:29.0729,lng:-110.9559},
@@ -12,12 +12,11 @@ const stops=[
   {day:'flex',name:'Downtown Hermosillo',note:'Historic center + Plaza Zaragoza',lat:29.075,lng:-110.957},
   {day:'flex',name:'Casa Oaxaca 28',note:'A meal at Av. Oaxaca 48, Centro',lat:29.083,lng:-110.958},
   {day:'flex',name:'Cerro del Bachoco',note:'Morning hike',lat:29.145,lng:-110.932},
-  {day:4,name:'Parque Madero + Jaris',note:'Park walk + vegan lunch',lat:29.079,lng:-110.95},
+  {day:4,name:'Parque Madero + lunch',note:'Park walk + Jaris or Calafate',lat:29.079,lng:-110.95},
   {day:'flex',name:'Cerro de la Campana',note:'Sunset viewpoint',lat:29.068,lng:-110.947},
   {day:4,name:'Bosque Urbano La Sauceda',note:'Forest walk, workshop, market, or evening event',lat:29.065,lng:-110.921},
   {day:'flex',name:'Los Lagos + Calafate',note:'Golf followed by an Ítalo-Latin lunch',lat:29.109,lng:-111.015},
-  {day:'flex',name:'El Cochito Loco',note:'Carnitas takeout for the family',lat:29.105,lng:-110.973},
-  {day:'flex',name:'Terrazza in San Pedro',note:'Organic farm-to-table meal with a family friend',lat:29.205,lng:-110.833}
+  {day:'flex',name:'Organic farm + Terrazza',note:'Farm visit and meal with a family friend',lat:29.205,lng:-110.833}
 ];
 
 if(window.L){

@@ -8,7 +8,7 @@ const stops=[
   {day:3,name:'San Carlos',note:'Beachfront seafood + sunset',lat:27.958,lng:-111.036},
   {day:'flex',name:'Restaurant Bugambilias',note:'Tamales on the road to Ures',lat:29.385,lng:-110.447},
   {day:'flex',name:'Ures',note:'Pueblo Mágico stroll',lat:29.428,lng:-110.386},
-  {day:5,name:'Hermosillo farewell',note:'Easy breakfast + late-morning departure',lat:29.0729,lng:-110.9559},
+  {day:5,name:'Casa Garmendia — Morelos',note:'Early brunch + late-morning departure',lat:29.119,lng:-110.95},
   {day:'flex',name:'Downtown Hermosillo',note:'Historic center + Plaza Zaragoza',lat:29.075,lng:-110.957},
   {day:'flex',name:'Casa Oaxaca 28',note:'A meal at Av. Oaxaca 48, Centro',lat:29.083,lng:-110.958},
   {day:'flex',name:'Cerro del Bachoco',note:'Morning hike',lat:29.145,lng:-110.932},

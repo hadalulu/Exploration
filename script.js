@@ -8,24 +8,29 @@ const stops=[
   {day:3,name:'San Carlos',note:'Beachfront seafood + sunset',lat:27.958,lng:-111.036},
   {day:4,name:'Restaurant Bugambilias',note:'Tamales on the road to Ures',lat:29.385,lng:-110.447},
   {day:4,name:'Ures',note:'Pueblo Mágico stroll',lat:29.428,lng:-110.386},
-  {day:5,name:'Cerro del Bachoco',note:'Morning hike',lat:29.145,lng:-110.932},
-  {day:5,name:'Parque Madero + Jaris',note:'Park walk + vegan lunch',lat:29.079,lng:-110.95},
-  {day:5,name:'Cerro de la Campana',note:'Sunset viewpoint',lat:29.068,lng:-110.947},
-  {day:6,name:'Bosque Urbano La Sauceda',note:'Events + urban forest',lat:29.065,lng:-110.921}
+  {day:5,name:'Hermosillo farewell',note:'Easy breakfast + late-morning departure',lat:29.0729,lng:-110.9559},
+  {day:'flex',name:'Downtown Hermosillo',note:'Historic center + Plaza Zaragoza',lat:29.075,lng:-110.957},
+  {day:'flex',name:'Casa Oaxaca 28',note:'A meal at Av. Oaxaca 48, Centro',lat:29.083,lng:-110.958},
+  {day:'flex',name:'Cerro del Bachoco',note:'Morning hike',lat:29.145,lng:-110.932},
+  {day:'flex',name:'Parque Madero + Jaris',note:'Park walk + vegan lunch',lat:29.079,lng:-110.95},
+  {day:'flex',name:'Cerro de la Campana',note:'Sunset viewpoint',lat:29.068,lng:-110.947},
+  {day:'flex',name:'Bosque Urbano La Sauceda',note:'Events + urban forest',lat:29.065,lng:-110.921}
 ];
 
 if(window.L){
   const map=L.map('map',{scrollWheelZoom:false});
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribution:'&copy; OpenStreetMap contributors'}).addTo(map);
   const markers=stops.map(stop=>{
-    const icon=L.divIcon({className:'',html:`<div class="day-marker"><span>${stop.day}</span></div>`,iconSize:[34,34],iconAnchor:[17,34]});
-    return {stop,marker:L.marker([stop.lat,stop.lng],{icon}).bindPopup(`<strong>${stop.name}</strong><small>Day ${stop.day} · ${stop.note}</small>`)};
+    const label=stop.day==='flex'?'F':stop.day;
+    const timing=stop.day==='flex'?'Flexible stop':`Day ${stop.day}`;
+    const icon=L.divIcon({className:'',html:`<div class="day-marker"><span>${label}</span></div>`,iconSize:[34,34],iconAnchor:[17,34]});
+    return {stop,marker:L.marker([stop.lat,stop.lng],{icon}).bindPopup(`<strong>${stop.name}</strong><small>${timing} · ${stop.note}</small>`)};
   });
   const showDay=day=>{
     markers.forEach(({stop,marker})=>{const visible=day==='all'||String(stop.day)===day;if(visible&&!map.hasLayer(marker))marker.addTo(map);if(!visible&&map.hasLayer(marker))map.removeLayer(marker)});
     const visible=markers.filter(({stop})=>day==='all'||String(stop.day)===day).map(({marker})=>marker.getLatLng());
     if(visible.length)map.fitBounds(L.latLngBounds(visible),{padding:[38,38],maxZoom:day==='1'?12:10});
   };
-  document.querySelectorAll('.day-filters button').forEach(button=>button.addEventListener('click',()=>{document.querySelectorAll('.day-filters button').forEach(b=>b.classList.toggle('active',b===button));showDay(button.dataset.day)}));
+  document.querySelectorAll('.day-filters button').forEach(button=>button.addEventListener('click',()=>{document.querySelectorAll('.day-filters button').forEach(b=>{const selected=b===button;b.classList.toggle('active',selected);b.setAttribute('aria-pressed',selected)});showDay(button.dataset.day)}));
   showDay('all');
 }

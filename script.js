@@ -15,7 +15,9 @@ const stops=[
   {day:4,name:'Parque Madero + Jaris',note:'Park walk + vegan lunch',lat:29.079,lng:-110.95},
   {day:'flex',name:'Cerro de la Campana',note:'Sunset viewpoint',lat:29.068,lng:-110.947},
   {day:4,name:'Bosque Urbano La Sauceda',note:'Forest walk, workshop, market, or evening event',lat:29.065,lng:-110.921},
-  {day:'flex',name:'Los Lagos + Calafate',note:'Golf followed by an Ítalo-Latin lunch',lat:29.109,lng:-111.015}
+  {day:'flex',name:'Los Lagos + Calafate',note:'Golf followed by an Ítalo-Latin lunch',lat:29.109,lng:-111.015},
+  {day:'flex',name:'El Cochito Loco',note:'Carnitas takeout for the family',lat:29.105,lng:-110.973},
+  {day:'flex',name:'Terrazza in San Pedro',note:'Organic farm-to-table meal with a family friend',lat:29.205,lng:-110.833}
 ];
 
 if(window.L){

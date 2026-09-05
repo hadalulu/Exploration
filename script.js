@@ -6,15 +6,16 @@ const stops=[
   {day:2,name:'Bahía de Kino',note:'Beach walk + seafood',lat:28.828,lng:-111.94},
   {day:3,name:'Cañón del Nacapule',note:'Morning canyon hike',lat:28.006,lng:-111.065},
   {day:3,name:'San Carlos',note:'Beachfront seafood + sunset',lat:27.958,lng:-111.036},
-  {day:4,name:'Restaurant Bugambilias',note:'Tamales on the road to Ures',lat:29.385,lng:-110.447},
-  {day:4,name:'Ures',note:'Pueblo Mágico stroll',lat:29.428,lng:-110.386},
+  {day:'flex',name:'Restaurant Bugambilias',note:'Tamales on the road to Ures',lat:29.385,lng:-110.447},
+  {day:'flex',name:'Ures',note:'Pueblo Mágico stroll',lat:29.428,lng:-110.386},
   {day:5,name:'Hermosillo farewell',note:'Easy breakfast + late-morning departure',lat:29.0729,lng:-110.9559},
   {day:'flex',name:'Downtown Hermosillo',note:'Historic center + Plaza Zaragoza',lat:29.075,lng:-110.957},
   {day:'flex',name:'Casa Oaxaca 28',note:'A meal at Av. Oaxaca 48, Centro',lat:29.083,lng:-110.958},
   {day:'flex',name:'Cerro del Bachoco',note:'Morning hike',lat:29.145,lng:-110.932},
-  {day:'flex',name:'Parque Madero + Jaris',note:'Park walk + vegan lunch',lat:29.079,lng:-110.95},
+  {day:4,name:'Parque Madero + Jaris',note:'Park walk + vegan lunch',lat:29.079,lng:-110.95},
   {day:'flex',name:'Cerro de la Campana',note:'Sunset viewpoint',lat:29.068,lng:-110.947},
-  {day:'flex',name:'Bosque Urbano La Sauceda',note:'Events + urban forest',lat:29.065,lng:-110.921}
+  {day:4,name:'Bosque Urbano La Sauceda',note:'Forest walk, workshop, market, or evening event',lat:29.065,lng:-110.921},
+  {day:'flex',name:'Los Lagos + Calafate',note:'Golf followed by an Ítalo-Latin lunch',lat:29.109,lng:-111.015}
 ];
 
 if(window.L){

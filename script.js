@@ -26,7 +26,7 @@ if(window.L){
   const markers=stops.map(stop=>{
     const labels={'2-3-a':'2A','2-3-b':'2B','4-a':'4A','4-b':'4B'};
     const timings={'2-3-a':'Days 2–3 — Option A','2-3-b':'Days 2–3 — Option B','4-a':'Day 4 — Option A','4-b':'Day 4 — Option B'};
-    const label=stop.day==='flex'?'F':labels[stop.day]||stop.day;
+    const label=stop.day==='flex'?'RI':labels[stop.day]||stop.day;
     const timing=stop.day==='flex'?'Remaining idea':timings[stop.day]||`Day ${stop.day}`;
     const icon=L.divIcon({className:'',html:`<div class="day-marker"><span>${label}</span></div>`,iconSize:[34,34],iconAnchor:[17,34]});
     return {stop,marker:L.marker([stop.lat,stop.lng],{icon}).bindPopup(`<strong>${stop.name}</strong><small>${timing} · ${stop.note}</small>`)};

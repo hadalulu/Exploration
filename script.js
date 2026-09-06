@@ -2,19 +2,20 @@ document.querySelectorAll('.filters button').forEach(button=>button.addEventList
 
 const stops=[
   {day:1,name:'Home in Hermosillo',note:'Early-afternoon arrival + backyard carne asada',lat:29.0729,lng:-110.9559},
-  {day:'2-3',name:'Dunas de San Nicolás',note:'Guided sandboarding',lat:28.55,lng:-111.43},
-  {day:'2-3',name:'Bahía de Kino',note:'Beach walk + seafood',lat:28.828,lng:-111.94},
-  {day:'2-3',name:'Cañón del Nacapule',note:'Morning canyon hike',lat:28.006,lng:-111.065},
-  {day:'2-3',name:'San Carlos',note:'Beachfront seafood + sunset',lat:27.958,lng:-111.036},
-  {day:4,name:'Restaurant Bugambilias',note:'Tamales on the road to Ures',lat:29.385,lng:-110.447},
-  {day:4,name:'Ures',note:'Pueblo Mágico stroll',lat:29.428,lng:-110.386},
+  {day:'2-3-b',name:'Dunas de San Nicolás',note:'Guided sandboarding',lat:28.55,lng:-111.43},
+  {day:'2-3-b',name:'Bahía de Kino',note:'Beach walk + seafood',lat:28.828,lng:-111.94},
+  {day:'2-3-a',name:'Cañón del Nacapule',note:'Morning canyon hike',lat:28.006,lng:-111.065},
+  {day:'2-3-a',name:'San Carlos',note:'Beachfront seafood + sunset',lat:27.958,lng:-111.036},
+  {day:'4-a',name:'Restaurant Bugambilias',note:'Tamales on the road to Ures',lat:29.385,lng:-110.447},
+  {day:'4-a',name:'Ures',note:'Pueblo Mágico stroll',lat:29.428,lng:-110.386},
   {day:5,name:'Casa Garmendia — Morelos',note:'Early brunch + late-morning departure',lat:29.119,lng:-110.95},
   {day:'flex',name:'Downtown Hermosillo',note:'Historic center + Plaza Zaragoza',lat:29.075,lng:-110.957},
+  {day:'flex',name:'Downtown holiday decorations',note:'December lights around Plaza Zaragoza and the historic center',lat:29.075,lng:-110.957},
   {day:'flex',name:'Casa Oaxaca 28',note:'A meal at Av. Oaxaca 48, Centro',lat:29.083,lng:-110.958},
   {day:'flex',name:'Cerro del Bachoco',note:'Morning hike',lat:29.145,lng:-110.932},
-  {day:4,name:'Parque Madero + Jaris',note:'Park walk + vegan lunch at Jaris',lat:29.079,lng:-110.95},
+  {day:'4-b',name:'Parque Madero + lunch',note:'Park walk + vegan lunch at Jaris',lat:29.079,lng:-110.95},
   {day:'flex',name:'Cerro de la Campana',note:'Sunset viewpoint',lat:29.068,lng:-110.947},
-  {day:4,name:'Bosque Urbano La Sauceda',note:'Forest walk, workshop, market, or evening event',lat:29.065,lng:-110.921},
+  {day:'4-b',name:'Bosque Urbano La Sauceda',note:'Forest walk, workshop, market, or evening event',lat:29.065,lng:-110.921},
   {day:'flex',name:'Golf at Los Lagos + Calafate',note:'Golf followed by lunch at Calafate',lat:29.109,lng:-111.015},
   {day:'flex',name:'Terrazza Organic Farm',note:'Farm tour followed by brunch or lunch',lat:29.205,lng:-110.833}
 ];
@@ -23,8 +24,10 @@ if(window.L){
   const map=L.map('map',{scrollWheelZoom:false});
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribution:'&copy; OpenStreetMap contributors'}).addTo(map);
   const markers=stops.map(stop=>{
-    const label=stop.day==='flex'?'F':stop.day==='2-3'?'2/3':stop.day;
-    const timing=stop.day==='flex'?'Remaining idea':stop.day==='2-3'?'Days 2–3':`Day ${stop.day}`;
+    const labels={'2-3-a':'2A','2-3-b':'2B','4-a':'4A','4-b':'4B'};
+    const timings={'2-3-a':'Days 2–3 — Option A','2-3-b':'Days 2–3 — Option B','4-a':'Day 4 — Option A','4-b':'Day 4 — Option B'};
+    const label=stop.day==='flex'?'F':labels[stop.day]||stop.day;
+    const timing=stop.day==='flex'?'Remaining idea':timings[stop.day]||`Day ${stop.day}`;
     const icon=L.divIcon({className:'',html:`<div class="day-marker"><span>${label}</span></div>`,iconSize:[34,34],iconAnchor:[17,34]});
     return {stop,marker:L.marker([stop.lat,stop.lng],{icon}).bindPopup(`<strong>${stop.name}</strong><small>${timing} · ${stop.note}</small>`)};
   });

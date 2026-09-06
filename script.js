@@ -12,11 +12,11 @@ const stops=[
   {day:'flex',name:'Downtown Hermosillo',note:'Historic center + Plaza Zaragoza',lat:29.075,lng:-110.957},
   {day:'flex',name:'Casa Oaxaca 28',note:'A meal at Av. Oaxaca 48, Centro',lat:29.083,lng:-110.958},
   {day:'flex',name:'Cerro del Bachoco',note:'Morning hike',lat:29.145,lng:-110.932},
-  {day:4,name:'Parque Madero + lunch',note:'Park walk + Jaris or Calafate',lat:29.079,lng:-110.95},
+  {day:4,name:'Parque Madero + Jaris',note:'Park walk + vegan lunch at Jaris',lat:29.079,lng:-110.95},
   {day:'flex',name:'Cerro de la Campana',note:'Sunset viewpoint',lat:29.068,lng:-110.947},
   {day:4,name:'Bosque Urbano La Sauceda',note:'Forest walk, workshop, market, or evening event',lat:29.065,lng:-110.921},
-  {day:'flex',name:'Los Lagos + Calafate',note:'Golf followed by an Ítalo-Latin lunch',lat:29.109,lng:-111.015},
-  {day:'flex',name:'Organic farm + Terrazza',note:'Farm visit and meal with a family friend',lat:29.205,lng:-110.833}
+  {day:'flex',name:'Golf at Los Lagos + Calafate',note:'Golf followed by lunch at Calafate',lat:29.109,lng:-111.015},
+  {day:'flex',name:'Terrazza Organic Farm',note:'Farm tour followed by brunch or lunch',lat:29.205,lng:-110.833}
 ];
 
 if(window.L){

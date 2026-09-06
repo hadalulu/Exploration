@@ -2,13 +2,13 @@ document.querySelectorAll('.filters button').forEach(button=>button.addEventList
 
 const stops=[
   {day:1,name:'Home in Hermosillo',note:'Early-afternoon arrival + backyard carne asada',lat:29.0729,lng:-110.9559},
-  {day:2,name:'Dunas de San Nicolás',note:'Guided sandboarding',lat:28.55,lng:-111.43},
-  {day:2,name:'Bahía de Kino',note:'Beach walk + seafood',lat:28.828,lng:-111.94},
-  {day:3,name:'Cañón del Nacapule',note:'Morning canyon hike',lat:28.006,lng:-111.065},
-  {day:3,name:'San Carlos',note:'Beachfront seafood + sunset',lat:27.958,lng:-111.036},
-  {day:5,name:'Restaurant Bugambilias',note:'Tamales on the road to Ures',lat:29.385,lng:-110.447},
-  {day:5,name:'Ures',note:'Pueblo Mágico stroll',lat:29.428,lng:-110.386},
-  {day:6,name:'Casa Garmendia — Morelos',note:'Early brunch + late-morning departure',lat:29.119,lng:-110.95},
+  {day:'2-3',name:'Dunas de San Nicolás',note:'Guided sandboarding',lat:28.55,lng:-111.43},
+  {day:'2-3',name:'Bahía de Kino',note:'Beach walk + seafood',lat:28.828,lng:-111.94},
+  {day:'2-3',name:'Cañón del Nacapule',note:'Morning canyon hike',lat:28.006,lng:-111.065},
+  {day:'2-3',name:'San Carlos',note:'Beachfront seafood + sunset',lat:27.958,lng:-111.036},
+  {day:4,name:'Restaurant Bugambilias',note:'Tamales on the road to Ures',lat:29.385,lng:-110.447},
+  {day:4,name:'Ures',note:'Pueblo Mágico stroll',lat:29.428,lng:-110.386},
+  {day:5,name:'Casa Garmendia — Morelos',note:'Early brunch + late-morning departure',lat:29.119,lng:-110.95},
   {day:'flex',name:'Downtown Hermosillo',note:'Historic center + Plaza Zaragoza',lat:29.075,lng:-110.957},
   {day:'flex',name:'Casa Oaxaca 28',note:'A meal at Av. Oaxaca 48, Centro',lat:29.083,lng:-110.958},
   {day:'flex',name:'Cerro del Bachoco',note:'Morning hike',lat:29.145,lng:-110.932},
@@ -23,8 +23,8 @@ if(window.L){
   const map=L.map('map',{scrollWheelZoom:false});
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribution:'&copy; OpenStreetMap contributors'}).addTo(map);
   const markers=stops.map(stop=>{
-    const label=stop.day==='flex'?'F':stop.day;
-    const timing=stop.day==='flex'?'Flexible stop':`Day ${stop.day}`;
+    const label=stop.day==='flex'?'F':stop.day==='2-3'?'2/3':stop.day;
+    const timing=stop.day==='flex'?'Remaining idea':stop.day==='2-3'?'Days 2–3':`Day ${stop.day}`;
     const icon=L.divIcon({className:'',html:`<div class="day-marker"><span>${label}</span></div>`,iconSize:[34,34],iconAnchor:[17,34]});
     return {stop,marker:L.marker([stop.lat,stop.lng],{icon}).bindPopup(`<strong>${stop.name}</strong><small>${timing} · ${stop.note}</small>`)};
   });

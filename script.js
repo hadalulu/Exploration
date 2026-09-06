@@ -2,7 +2,7 @@ document.querySelectorAll('.filters button').forEach(button=>button.addEventList
 
 const stops=[
   {day:1,name:'Home in Hermosillo',note:'Early-afternoon arrival + backyard carne asada',lat:29.0729,lng:-110.9559},
-  {day:'2-3-b',name:'Dunas de San Nicolás',note:'Guided sandboarding',lat:28.55,lng:-111.43},
+  {day:'2-3-b',name:'Dunas de San Nicolás',note:'Sandboarding',lat:28.55,lng:-111.43},
   {day:'2-3-b',name:'Bahía de Kino',note:'Beach walk + seafood',lat:28.828,lng:-111.94},
   {day:'2-3-a',name:'Cañón del Nacapule',note:'Morning canyon hike',lat:28.006,lng:-111.065},
   {day:'2-3-a',name:'San Carlos',note:'Beachfront seafood + sunset',lat:27.958,lng:-111.036},
